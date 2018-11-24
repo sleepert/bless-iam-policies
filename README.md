@@ -7,7 +7,7 @@ Bless requires access to your kms key for decrypting your private key password, 
 This policy is in the [bless-lambda](bless-lambda-policy.json) json, you simply need to supply your kms arn.
 
 ## Permission to invoke Bless
-A use who wishes to generate a certificate using Bless will need permissions to invoke the Bless lambda.
+To generate a certificate using Bless, your iam user will need permission to invoke the Bless lambda.
 This policy is in the [bless-invoke](bless-invoke-permissions.json) json, you will need to supply the arn for your Bless lambda function.
 
 For ease of use, a temporary key should be generated before your first Bless request attempt:
