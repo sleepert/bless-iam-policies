@@ -1,6 +1,7 @@
 # bless-iam-policies
 Basic iam policies for getting Netflix Bless up and running.
-Full youtube tutorial [here](https://youtu.be/j-ks2MBeUWw)
+Full youtube tutorial [here](https://youtu.be/j-ks2MBeUWw).<br>
+The tutorial aims to further break down the very useful [guide](https://www.tastycidr.net/a-practical-guide-to-deploying-netflixs-bless-certificate-authority/) written by Connor Reilly.
 
 ## Creating an iam role for Bless
 Bless requires access to your kms key for decrypting your private key password, it also requires access to kms to generate random byte strings.
