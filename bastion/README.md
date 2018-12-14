@@ -1,5 +1,5 @@
 # Bless with a Bastion
-See youtube tutorial on how to get started. https://www.youtube.com/watch?v=8w0KWB8Bjvs
+See youtube [tutorial](https://www.youtube.com/watch?v=8w0KWB8Bjvs) on how to get started. 
 These are just a few policies and scripts you can put onto your Bastion to ensure that users can only access instances with 2fa enabled.
 
 ## Bless invoke role.
