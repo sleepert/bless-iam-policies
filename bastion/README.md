@@ -13,4 +13,4 @@ I have taken the python script from [this](https://www.tastycidr.net/a-practical
 The timer is set to trigger every 10 seconds just for the tutorial, change it to you think is necessary for your setup.
 
 ## bless client
-The bless client is simply the modified Netflix sample bless client with a few hardcoded smells. The hardcoding was for berevity in the youtube tutorial.
+The bless client is simply a modified Netflix sample bless client with a few *hardcoded smells*. _The hardcoding was for berevity in the youtube tutorial._
