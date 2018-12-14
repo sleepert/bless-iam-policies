@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync iam users with bastion
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/iamsync
+ExecStart=/usr/bin/python iamsync.py

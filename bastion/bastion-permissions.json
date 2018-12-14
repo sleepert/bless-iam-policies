@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "InvokeBless",
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            "Resource": [
+                "arn:aws:lambda:eu-west-1:<your account>:function:BLESS"
+            ]
+        },
+        {
+            "Sid": "ListSSHKeys",
+            "Effect": "Allow",
+            "Action": "iam:ListSSHPublicKeys",
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "GetGroupAndKey",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetSSHPublicKey",
+                "iam:GetGroup"
+            ],
+            "Resource": [
+                "arn:aws:iam::<your account>:group/blessed",
+                "arn:aws:iam::<your account>:user/*"
+            ]
+        }
+    ]
+}
