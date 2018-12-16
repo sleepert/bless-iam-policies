@@ -1,6 +1,17 @@
 # Bless with a Bastion
 See youtube [tutorial](https://www.youtube.com/watch?v=8w0KWB8Bjvs) on how to get started. 
-These are just a few policies and scripts you can put onto your Bastion to ensure that users can only access instances with 2fa enabled.
+These are just a few policies and scripts you can put onto your Bastion to ensure that users can only access instances with 2fa enabled. 
+
+#### Benefits 
+* 2fa Greatly reduces the chance of an attacker gaining access to your instances, even if a dev computer has been compromised.
+* EC2 instances can be built with minimal provisioning (they only require trust of the CA - a simple 2 step ansible process)
+* User management can be automated on the bastion only instead of user management on every instance (the lyft client approach)
+* Users can manage their own SSH public keys, rather than going through a sys admin
+
+#### Drawbacks
+* Over confidence in the security of your bastion could lead to actively ignoring security flaws in your instances
+* Inconvenience of having to SSH to the bastion before you can SSH to any other instance (can be negated with local .ssh config)
+* Security group restrictions will affect your provisioning software.
 
 ## Bless invoke role.
 [bastion-permissions](bastion-permissions.json) contains the policy that can be attached to a role that your Bastion can assume. It will allow the Bastion to invoke the Bless lambda, list users and their SSH keys.
