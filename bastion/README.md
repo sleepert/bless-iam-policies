@@ -5,7 +5,7 @@ These are just a few policies and scripts you can put onto your Bastion to ensur
 #### Benefits 
 * 2fa Greatly reduces the chance of an attacker gaining access to your instances, even if a dev computer has been compromised.
 * EC2 instances can be built with minimal provisioning (they only require trust of the CA - a simple 2 step ansible process)
-* User management can be automated on the bastion only instead of user management on every instance (the lyft client approach)
+* User management can be automated on the bastion only. Rather than user management on every instance (the lyft client approach)
 * Users can manage their own SSH public keys, rather than going through a sys admin
 
 #### Drawbacks
