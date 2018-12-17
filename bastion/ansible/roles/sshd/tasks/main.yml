@@ -1,0 +1,16 @@
+---
+
+- name: copy pam.d config
+  copy:
+    src: files/sshd
+    dest: /etc/pam.d/sshd
+
+- name: copy sshd_config
+  copy:
+    src: files/sshd_config
+    dest: /etc/ssh/sshd_config
+
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted

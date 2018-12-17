@@ -1,0 +1,17 @@
+---
+
+- name: install python
+  apt:
+    name: python
+    update_cache: yes
+    state: present
+
+- name: install pip
+  apt:
+    name: python-pip
+    state: present
+
+- name: install boto3
+  pip:
+    executable: /usr/bin/pip
+    name: boto3

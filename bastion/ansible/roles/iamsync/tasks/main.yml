@@ -1,0 +1,49 @@
+---
+
+- name: iamsync opt directory
+  file:
+    path: /opt/iamsync
+    state: directory
+    mode: 0600
+
+- name: copy iamsync
+  template:
+    src: iamsync.py.j2
+    dest: /opt/iamsync/iamsync.py
+    owner: root
+    group: root
+    mode: 0600
+
+- name: copy iamsync service
+  template:
+    src: iamsync.service.j2
+    dest: /opt/iamsync/iamsync.service
+    owner: root
+    group: root
+    mode: 0600
+
+- name: copy iamsync timer
+  template:
+    src: iamsync.timer.j2
+    dest: /opt/iamsync/iamsync.timer
+    owner: root
+    group: root
+    mode: 0600
+
+- name: enable iamsync service
+  command: systemctl enable /opt/iamsync/iamsync.service
+  args:
+    creates: /etc/systemd/system/iamsync.service
+
+- name: enable iamsync timer
+  command: systemctl enable /opt/iamsync/iamsync.timer
+  args:
+    creates: /etc/systemd/system/iamsync.timer
+
+- name: start iamsync cron job
+  command: systemctl start iamsync.timer
+
+- name: put mfa script into profile.d
+  copy:
+    src: files/mfa.sh
+    dest: /etc/profile.d/mfa.sh

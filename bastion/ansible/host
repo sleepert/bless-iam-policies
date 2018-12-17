@@ -1,0 +1,2 @@
+[bastion]
+bastion ansible_ssh_host=34.244.123.137 ansible_python_interpreter=/usr/bin/python3

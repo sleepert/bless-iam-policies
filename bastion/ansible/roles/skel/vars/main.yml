@@ -1,0 +1,6 @@
+---
+
+skel_path: /etc/skel
+ssh_path: "{{ skel_path }}/.ssh"
+bless_client: bless_client.py
+bless_key: blessid

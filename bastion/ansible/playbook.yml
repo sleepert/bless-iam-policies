@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: yes
+
+  roles:
+  - python
+  - skel
+  - google-authenticator
+  - iamsync
+  - sshd
