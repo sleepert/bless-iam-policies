@@ -29,7 +29,7 @@ The bless client is simply a modified Netflix sample bless client with a few <b>
 ## file breakdown
 All files in this directory will be used by ansible.
 * [sshd_config](sshd_config) - config for /etc/ssh/sshd_config - _ubuntu user doesnt require 2 factor here, this was only for simplicity in the tutorial. its a good idea to force the ubuntu user to use 2fa_
-* [sshd](sshd) - config for google authenticator /etc/pam.d/sshd
+* [sshd](sshd) - pam module config for google authenticator /etc/pam.d/sshd
 * [mfa.sh](mfa.sh) - forces a user to enable 2fa on first loging /etc/profile.d/mfa.sh
 * iamsync - systemd service to sync users from the blessed group. Copied and modified from [this](https://www.tastycidr.net/a-practical-guide-to-deploying-netflixs-bless-certificate-authority/) bless lyft guide
 * [bless_client.py](bless_client.py) - allows a user to call the BLESS lambda function to generate a certificate, all users will have this in their home directory
