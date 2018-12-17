@@ -11,7 +11,7 @@ These are just a few policies and scripts you can put onto your Bastion to ensur
 #### Drawbacks
 * Over confidence in the security of your bastion could lead to actively ignoring security flaws in your instances
 * Inconvenience of having to SSH to the bastion before you can SSH to any other instance (can be negated with local .ssh config)
-* Security group restrictions will affect your provisioning software.
+* Security group restrictions may affect your provisioning software.
 
 ## Bless invoke role.
 [bastion-permissions](bastion-permissions.json) contains the policy that can be attached to a role that your Bastion can assume. It will allow the Bastion to invoke the Bless lambda, list users and their SSH keys.
