@@ -12,3 +12,8 @@ then run the playbook:
 ```
 ansible-playbook -u ubuntu -i 'host' --private-key <your ec2 keypair> playbook.yml
 ```
+## packer
+To make a bastion AMI run:
+```
+packer build packer.json
+```
