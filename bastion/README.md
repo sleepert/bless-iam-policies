@@ -1,5 +1,5 @@
 # Bless with a Bastion
-See youtube [tutorial](https://www.youtube.com/watch?v=8w0KWB8Bjvs) on how to get started. 
+See youtube [tutorial](https://www.youtube.com/watch?v=8w0KWB8Bjvs) on getting a bastion setup to use with [bless](https://github.com/Netflix/bless). 
 These are just a few policies and scripts you can put onto your Bastion to ensure that users can only access instances with 2fa enabled. You can use the code in this folder to follow along with the tutorial video. Or yo could run the [ansible](ansible) script to provision the bastion.
 
 #### Benefits 
