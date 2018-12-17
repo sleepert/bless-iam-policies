@@ -18,14 +18,14 @@
     mode: 0600
 
 - name: copy bless_client
-  template:
-    src: "{{ bless_client }}.j2"
-    dest: "{{ skel_path }}/{{ bless_client }}"
+  copy:
+    src: files/bless_client.py
+    dest: "{{ skel_path }}/bless_client.py"
     mode: 0700
 
 - name: create bash aliases
-  template:
-    src: bash_aliases.j2
+  copy:
+    src: files/bash_aliases
     dest: "{{ skel_path }}/.bash_aliases"
     owner: root
     group: root

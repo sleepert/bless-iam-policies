@@ -1,0 +1,4 @@
+function bless() {
+  ~/bless_client.py $1
+  ssh -i ~/.ssh/blessid $1@$2
+}

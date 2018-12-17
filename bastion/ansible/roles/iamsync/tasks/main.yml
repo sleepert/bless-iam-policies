@@ -7,24 +7,24 @@
     mode: 0600
 
 - name: copy iamsync
-  template:
-    src: iamsync.py.j2
+  copy:
+    src: files/iamsync.py
     dest: /opt/iamsync/iamsync.py
     owner: root
     group: root
     mode: 0600
 
 - name: copy iamsync service
-  template:
-    src: iamsync.service.j2
+  copy:
+    src: files/iamsync.service
     dest: /opt/iamsync/iamsync.service
     owner: root
     group: root
     mode: 0600
 
 - name: copy iamsync timer
-  template:
-    src: iamsync.timer.j2
+  copy:
+    src: files/iamsync.timer
     dest: /opt/iamsync/iamsync.timer
     owner: root
     group: root

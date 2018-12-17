@@ -2,5 +2,4 @@
 
 region: eu-west-1
 blessed_group: blessed
-iamsync_cron: "*:*:0/10"
 bless_function_name: BLESS

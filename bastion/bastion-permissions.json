@@ -1,33 +1,33 @@
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "InvokeBless",
-            "Effect": "Allow",
-            "Action": "lambda:InvokeFunction",
-            "Resource": [
-                "arn:aws:lambda:eu-west-1:<YOUR_ACCOUNT>:function:BLESS"
-            ]
-        },
-        {
-            "Sid": "ListSSHKeys",
-            "Effect": "Allow",
-            "Action": "iam:ListSSHPublicKeys",
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "GetGroupAndKey",
-            "Effect": "Allow",
-            "Action": [
-                "iam:GetSSHPublicKey",
-                "iam:GetGroup"
-            ],
-            "Resource": [
-                "arn:aws:iam::<YOUR_ACCOUNT>:group/blessed",
-                "arn:aws:iam::<YOUR_ACCOUNT>:user/*"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InvokeBless",
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": [
+          "arn:aws:lambda:eu-west-1:{{account}}:function:{{bless_function_name}}"
+      ]
+    },
+    {
+      "Sid": "ListSSHKeys",
+      "Effect": "Allow",
+      "Action": "iam:ListSSHPublicKeys",
+      "Resource": [
+          "*"
+      ]
+    },
+    {
+      "Sid": "GetGroupAndKey",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetSSHPublicKey",
+        "iam:GetGroup"
+      ],
+      "Resource": [
+        "arn:aws:iam::{{account}}:group/{{blessed_group}}",
+        "arn:aws:iam::{{account}}:user/*"
+      ]
+    }
+  ]
 }
