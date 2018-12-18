@@ -3,7 +3,7 @@ sudo: yes
 
 env:
   matrix:
-    - distro=ubuntu1804
+    - distro=ubuntu:18.04
       init=/lib/systemd/systemd
       run_opts="--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
@@ -11,10 +11,9 @@ services:
   - docker
 
 before_install:
-  - docker pull geerlingguy/docker-$distro-ansible:latest
+  - docker pull $distro
 
 script:
-  - sudo apt-get install openssh-client
   - container_id=$(mktemp)
   - docker run --detach --volume="${PWD}":/etc/bless:ro $run_opts geerlingguy/docker-$distro-ansible:latest "${init}" > "${container_id}"
   - >
