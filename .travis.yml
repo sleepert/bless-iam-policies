@@ -27,7 +27,7 @@ script:
 
   - idempotence=$(mktemp)
   - >
-    docker exec "$(cat ${container_id})"
+    docker exec --tty "$(cat ${container_id})" env TERM=xterm
     ansible-playbook /etc/bless/bastion/ansible/playbook.yml
     | tee -a ${idempotence}
   - >
