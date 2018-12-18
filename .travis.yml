@@ -1,21 +1,21 @@
 ---
 sudo: yes
 
-env:
-  matrix:
-    - distro=ubuntu:18.04
-      init=/lib/systemd/systemd
-      run_opts="--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-
 services:
   - docker
 
+env:
+  matrix:
+    - image=sleepert/bastion-ubuntu
+      init=/usr/lib/systemd/systemd
+      run_opts="--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
 before_install:
-  - docker pull $distro
+  - docker pull $image
 
 script:
   - container_id=$(mktemp)
-  - docker run --detach --volume="${PWD}":/etc/bless:ro $run_opts $distro "${init}" > "${container_id}"
+  - docker run --detach --volume="${PWD}":/etc/bless:ro $run_opts $image "$init" > "$container_id"
   - >
     docker exec --tty "$(cat ${container_id})" env TERM=xterm
     ansible-playbook /etc/bless/bastion/ansible/playbook.yml
