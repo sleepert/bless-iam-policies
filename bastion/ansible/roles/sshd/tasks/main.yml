@@ -9,8 +9,10 @@
   copy:
     src: files/sshd_config
     dest: /etc/ssh/sshd_config
+  register: sshd
 
 - name: restart sshd
   service:
     name: sshd
     state: restarted
+  when: sshd.changed
