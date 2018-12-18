@@ -2,9 +2,10 @@
 sudo: yes
 
 env:
-  - distro: ubuntu1804
-    init: /lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  global:
+    - distro: ubuntu1804
+      init: /lib/systemd/systemd
+      run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
 
 services:
   - docker
