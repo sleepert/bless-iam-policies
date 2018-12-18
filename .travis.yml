@@ -15,7 +15,7 @@ before_install:
 
 script:
   - container_id=$(mktemp)
-  - docker run --detach --volume="${PWD}":/etc/bless:ro $run_opts geerlingguy/docker-$distro-ansible:latest "${init}" > "${container_id}"
+  - docker run --detach --volume="${PWD}":/etc/bless:ro $run_opts $distro "${init}" > "${container_id}"
   - >
     docker exec --tty "$(cat ${container_id})" env TERM=xterm
     ansible-playbook /etc/bless/bastion/ansible/playbook.yml
