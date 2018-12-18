@@ -39,9 +39,11 @@
   command: systemctl enable /opt/iamsync/iamsync.timer
   args:
     creates: /etc/systemd/system/iamsync.timer
+  register: timer
 
 - name: start iamsync cron job
   command: systemctl start iamsync.timer
+  when: timer.changed
 
 - name: put mfa script into profile.d
   copy:
