@@ -42,15 +42,14 @@ if [ ! -f "$HOME_DIR/.ssh/blessid-cert" ]; then
   exit 1
 fi
 
-sudo -u $USER bash << EOF
-echo "as user $USER"
-if [ `whoami` != $USER ]; then
-  echo "wrong user: $(whoami)"
+sudo su $USER
+
+if [ ! -f "$HOME_DIR/.google_authenticator" ]; then
+  echo "new user switched and .google_authenticator not in home path"
   exit 1
 fi
-echo "test bless alias is available"
-if [ `alias | grep bless | wc -l` != 1 ]; then
-  echo "bless alias does not exist"
+
+if (( $(whoami) != "root" )); then
+  echo "User switched for the first time but not logged out, check mfa.sh"
   exit 1
 fi
-EOF
