@@ -47,6 +47,7 @@ sudo -i -u $USER bash << EOF
 exit
 EOF
 
+echo "test .google_authenticator exists in home directory"
 if [ ! -f "$HOME_DIR/.google_authenticator" ]; then
   echo "new user switched and .google_authenticator not in home path"
   exit 1
