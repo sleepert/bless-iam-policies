@@ -19,7 +19,7 @@ if [ ! -f "$HOME_DIR/.ssh/authorized_keys" ]; then
 fi
 
 echo "test empty authorized_keys"
-if [ ! -s "$HOME_DIR/.ssh/authorized_keys" ]; then
+if [ -s "$HOME_DIR/.ssh/authorized_keys" ]; then
   echo "authorized_keys contains data it shouldnt"
   exit 1
 fi
