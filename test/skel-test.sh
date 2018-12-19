@@ -44,7 +44,7 @@ fi
 
 sudo -u $USER bash << EOF
 echo "as user $USER"
-if [ `whoami != $USER ]; then
+if [ `whoami` != $USER ]; then
   echo "wrong user: $(whoami)"
   exit 1
 fi
