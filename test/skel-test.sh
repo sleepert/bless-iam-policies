@@ -42,7 +42,7 @@ if [ ! -f "$HOME_DIR/.ssh/blessid-cert" ]; then
   exit 1
 fi
 
-sudo su $USER
+sudo -u -i $USER bash << EOF
 
 if [ ! -f "$HOME_DIR/.google_authenticator" ]; then
   echo "new user switched and .google_authenticator not in home path"
@@ -53,3 +53,5 @@ if (( $(whoami) != "root" )); then
   echo "User switched for the first time but not logged out, check mfa.sh"
   exit 1
 fi
+
+EOF
