@@ -42,7 +42,7 @@ if [ ! -f "$HOME_DIR/.ssh/blessid-cert" ]; then
   exit 1
 fi
 
-sudo -u -i $USER bash << EOF
+sudo -i -u $USER bash << EOF
 
 if [ ! -f "$HOME_DIR/.google_authenticator" ]; then
   echo "new user switched and .google_authenticator not in home path"
