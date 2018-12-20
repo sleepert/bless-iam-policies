@@ -6,7 +6,7 @@
       "Effect": "Allow",
       "Action": "lambda:InvokeFunction",
       "Resource": [
-          "arn:aws:lambda:eu-west-1:{{account}}:function:{{bless_function_name}}"
+          "arn:aws:lambda:eu-west-1:<YOUR_ACCOUNT_NUMBER>:function:BLESS"
       ]
     },
     {
@@ -25,8 +25,8 @@
         "iam:GetGroup"
       ],
       "Resource": [
-        "arn:aws:iam::{{account}}:group/{{blessed_group}}",
-        "arn:aws:iam::{{account}}:user/*"
+        "arn:aws:iam::<YOUR_ACCOUNT_NUMBER>:group/blessed",
+        "arn:aws:iam::<YOUR_ACCOUNT_NUMBER>:user/*"
       ]
     }
   ]
