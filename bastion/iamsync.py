@@ -7,6 +7,8 @@ in the matching local unix blessed group.
 import boto3, pwd, grp, logging, logging.handlers, subprocess, json
 
 _LOGGER = logging.getLogger('pythonLogger')
+_HOME_DIR = "/home/{}"
+_AUTHORIZED_KEYS_PATH = _HOME_DIR + "/.ssh/authorized_keys"
 
 def get_local_group_membership(groupname):
   try:
@@ -60,7 +62,7 @@ def remove_defunct_users(group):
 
 def create_user(username, group):
   try:
-    homedir = "/home/{}".format(username)
+    homedir = _HOME_DIR.format(username)
     exitcode = subprocess.call(
       [
         "useradd", "-s", "/bin/bash",
@@ -122,8 +124,9 @@ def populate_authorized_keys(localusers):
     public_key_list = client.list_ssh_public_keys(
       UserName=user
     )['SSHPublicKeys']
+    authorized_keys_path = _AUTHORIZED_KEYS_PATH.format(user)
     if not public_key_list:
-      open("/home/" + user + "/.ssh/authorized_keys", "w").close()
+      open(authorized_keys_path, "w").close()
       continue
     sshkey = client.get_ssh_public_key(
       UserName=user,
@@ -131,7 +134,7 @@ def populate_authorized_keys(localusers):
       Encoding='SSH'
     )['SSHPublicKey'] \
     ['SSHPublicKeyBody']
-    authorized_key_file = open("/home/" + user + "/.ssh/authorized_keys", "w")
+    authorized_key_file = open(authorized_keys_path, "w")
     authorized_key_file.write(sshkey)
     authorized_key_file.close()
 
